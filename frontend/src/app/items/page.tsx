@@ -7,7 +7,7 @@ import { Search, SlidersHorizontal, Star, Plus, Loader2, ArrowUpRight } from "lu
 import { motion, AnimatePresence } from "framer-motion";
 
 interface Item {
-    id: number;
+    _id: string;
     name: string;
     description: string;
     price: number;
@@ -30,9 +30,9 @@ export default function ItemsPage() {
                 console.error("Error fetching items:", err);
                 // Fallback mock data if server isn't running yet
                 setItems([
-                    { id: 1, name: "Premium Watch", description: "Elegant time piece", price: 199, image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=400&auto=format&fit=crop" },
-                    { id: 2, name: "Wireless Buds", description: "Superior sound", price: 129, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=400&auto=format&fit=crop" },
-                    { id: 3, name: "Designer Bag", description: "Leather collection", price: 450, image: "https://images.unsplash.com/photo-1584917033904-47e13009168e?q=80&w=400&auto=format&fit=crop" },
+                    { _id: "1", name: "Premium Watch", description: "Elegant time piece", price: 199, image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=400&auto=format&fit=crop" },
+                    { _id: "2", name: "Wireless Buds", description: "Superior sound", price: 129, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=400&auto=format&fit=crop" },
+                    { _id: "3", name: "Designer Bag", description: "Leather collection", price: 450, image: "https://images.unsplash.com/photo-1584917033904-47e13009168e?q=80&w=400&auto=format&fit=crop" },
                 ]);
             } finally {
                 setLoading(false);
@@ -100,10 +100,10 @@ export default function ItemsPage() {
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0.9 }}
                                     transition={{ duration: 0.3, delay: idx * 0.05 }}
-                                    key={item.id}
+                                    key={item._id}
                                     className="bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-100 dark:border-slate-800 overflow-hidden group hover:shadow-2xl hover:shadow-indigo-500/5 transition-all"
                                 >
-                                    <Link href={`/items/${item.id}`} className="block">
+                                    <Link href={`/items/${item._id}`} className="block">
                                         <div className="relative h-72 overflow-hidden">
                                             <img src={item.image || "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400"} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                                             <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md rounded-2xl px-3 py-1 font-bold text-sm text-slate-900 border border-white/50">${item.price}</div>

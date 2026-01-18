@@ -8,7 +8,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 interface Item {
-    id: number;
+    _id: string;
     name: string;
     description: string;
     price: number;
