@@ -6,7 +6,7 @@ const { MongoClient, ObjectId } = require("mongodb");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.fdcjmvl.mongodb.net/?appName=Cluster0`;
 const DB_NAME = "prodex7254";
 
 app.use(cors());
@@ -17,13 +17,19 @@ let db;
 // MongoDB Connection using Native Driver
 async function connectDB() {
     try {
-        console.log("Attempting to connect to MongoDB...");
+        if (!MONGODB_URI) {
+            console.error("FATAL ERROR: MONGODB_URI is not defined in .env file!");
+            return;
+        }
+        console.log("Attempting to connect to MongoDB Atlas...");
         const client = await MongoClient.connect(MONGODB_URI);
         db = client.db(DB_NAME);
         console.log(`Successfully connected to MongoDB database: ${DB_NAME}`);
     } catch (err) {
         console.error("FATAL ERROR: Could not connect to MongoDB:", err.message);
-        // Important: Notice that we don't exit here so the server can still respond (even if with 500s)
+        if (err.message.includes("IP")) {
+            console.error("HINT: Ensure your current IP address is whitelisted in MongoDB Atlas Network Access settings.");
+        }
     }
 }
 

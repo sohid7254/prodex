@@ -30,12 +30,12 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="text-base text-gray-500 hover:text-indigo-600 transition-colors">
+                                <Link href="/featured" className="text-base text-gray-500 hover:text-indigo-600 transition-colors">
                                     Featured
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="text-base text-gray-500 hover:text-indigo-600 transition-colors">
+                                <Link href="/new-arrivals" className="text-base text-gray-500 hover:text-indigo-600 transition-colors">
                                     New Arrivals
                                 </Link>
                             </li>
@@ -45,17 +45,17 @@ export default function Footer() {
                         <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Support</h3>
                         <ul className="mt-4 space-y-4">
                             <li>
-                                <Link href="#" className="text-base text-gray-500 hover:text-indigo-600 transition-colors">
+                                <Link href="/help" className="text-base text-gray-500 hover:text-indigo-600 transition-colors">
                                     Help Center
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="text-base text-gray-500 hover:text-indigo-600 transition-colors">
+                                <Link href="/privacy" className="text-base text-gray-500 hover:text-indigo-600 transition-colors">
                                     Privacy Policy
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="text-base text-gray-500 hover:text-indigo-600 transition-colors">
+                                <Link href="/terms" className="text-base text-gray-500 hover:text-indigo-600 transition-colors">
                                     Terms of Service
                                 </Link>
                             </li>
