@@ -2,6 +2,9 @@
 
 Prodex is a modern, high-performance full-stack e-commerce application designed for showcasing premium products with a sleek, minimalist aesthetic. It features a robust Next.js frontend and a lightweight Express.js backend integrated with MongoDB.
 
+
+Live Link [https://frontend-qfbckfjcx-sohids-projects.vercel.app/]
+
 ## 🚀 Features
 
 - **Premium UI/UX**: Built with Framer Motion and Tailwind CSS for a fluid, high-end feel.
@@ -54,8 +57,6 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## 🚀 Deployment (Vercel)
 
 For a successful deployment on Vercel, follows these steps:
 
