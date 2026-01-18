@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "Eco-Friendly Water Bottle",
+        "description": "Stay hydrated with this sustainable, BPA-free water bottle. Features a leak-proof cap and a sleek design.",
+        "price": 25,
+        "image": "https://i.ibb.co.com/k7zYCNw/eco.jpg",
+        "category": "Lifestyle"
+    },
+    {
+        "id": 2,
+        "name": "Wireless Noise-Canceling Headphones",
+        "description": "Experience premium sound quality and complete silence with these advanced headphones. 30-hour battery life.",
+        "price": 299,
+        "image": "https://i.ibb.co.com/gMQZGg68/headphone.avif",
+        "category": "Electronics"
+    },
+    {
+        "id": 3,
+        "name": "Ergonomic Office Chair",
+        "description": "Improve your posture and comfort during long work hours. Adjustable height and lumbar support.",
+        "price": 450,
+        "image": "https://i.ibb.co.com/0RtksVtD/chair.jpg",
+        "category": "Furniture"
+    },
+    {
+        "id": 4,
+        "name": "Mechanical Gaming Keyboard",
+        "description": "Tactile feedback and RGB lighting for the ultimate gaming experience. Durable switches rated for 50 million keystrokes.",
+        "price": 120,
+        "image": "https://i.ibb.co.com/q3hXy7yF/keyboard.avif",
+        "category": "Electronics"
+    },
+    {
+        "id": 5,
+        "name": "Portable Solar Charger",
+        "description": "Charge your devices on the go using the power of the sun. Compact, lightweight, and waterproof.",
+        "price": 45,
+        "image": "https://i.ibb.co.com/N2vZsxTV/Car.avif",
+        "category": "Lifestyle"
+    },
+    {
+        "id": 6,
+        "name": "Vintage Tan Leather Saddle Bag (Equestrian Crossbody Style)",
+        "description": "This handbag is a sophisticated blend of rustic charm and high-fashion silhouette. It is characterized by its unique \"kidney\" or asymmetrical shape, which is inspired by the form of a horse saddle.\n\nMaterial: Crafted from smooth, high-quality tan or cognac-colored leather with a semi-matte finish.\n\nDesign Features: * Asymmetrical Flap: The front flap features a layered, curved design with white contrast stitching that highlights the craftsmanship.\n\nHardware: Features a signature gold-tone stirrup charm hanging from a leather strap, emphasizing the equestrian theme.\n\nStrap: Includes a long, adjustable leather shoulder strap, making it versatile for use as a shoulder bag or a crossbody.\n\nColor Palette: A rich, warm \"camel\" or \"tobacco\" brown that pairs easily with neutral wardrobes.\n\nStyle & Use\nThis bag is perfect for a \"Quiet Luxury\" or \"Dark Academia\" aesthetic. It is compact enough for daily use while being structured enough to maintain its shape over time. It pairs exceptionally well with trench coats, denim, or equestrian-style boots.",
+        "price": 299,
+        "image": "https://i.ibb.co.com/Ng4qy5V7/images.jpg",
+        "category": "Lifestyle"
+    }
+]
