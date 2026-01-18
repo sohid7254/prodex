@@ -88,6 +88,10 @@ app.post("/api/items", checkDB, async (req, res) => {
     }
 });
 
+app.get("/", (req, res) => {
+    res.send("Hello World! Server is running...");
+});
+
 if (process.env.NODE_ENV !== "production") {
     app.listen(PORT, () => {
         console.log(`Server is running on port ${PORT}`);
