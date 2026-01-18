@@ -24,7 +24,8 @@ export default function AddItemPage() {
         setLoading(true);
 
         try {
-            await axios.post("http://localhost:5000/api/items", {
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+            await axios.post(`${apiUrl}/api/items`, {
                 ...formData,
                 price: parseFloat(formData.price),
             });

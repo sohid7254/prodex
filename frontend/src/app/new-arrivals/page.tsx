@@ -23,7 +23,8 @@ export default function NewArrivalsPage() {
     useEffect(() => {
         const fetchItems = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/api/items");
+                const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+                const res = await axios.get(`${apiUrl}/api/items`);
                 // Already sorted by _id or createdAt in backend, but just in case
                 setItems(res.data.slice(0, 8));
             } catch (err) {

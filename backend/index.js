@@ -12,35 +12,42 @@ const DB_NAME = "prodex7254";
 app.use(cors());
 app.use(bodyParser.json());
 
-let db;
+let cachedDb = null;
+let client = null;
 
-// MongoDB Connection using Native Driver
+// Database Connection Logic
 async function connectDB() {
+    if (cachedDb) return cachedDb;
+
     try {
-        if (!MONGODB_URI) {
-            console.error("FATAL ERROR: MONGODB_URI is not defined in .env file!");
-            return;
-        }
         console.log("Attempting to connect to MongoDB Atlas...");
-        const client = await MongoClient.connect(MONGODB_URI);
-        db = client.db(DB_NAME);
+        if (!client) {
+            client = await MongoClient.connect(MONGODB_URI);
+        }
+        cachedDb = client.db(DB_NAME);
         console.log(`Successfully connected to MongoDB database: ${DB_NAME}`);
+        return cachedDb;
     } catch (err) {
         console.error("FATAL ERROR: Could not connect to MongoDB:", err.message);
-        if (err.message.includes("IP")) {
-            console.error("HINT: Ensure your current IP address is whitelisted in MongoDB Atlas Network Access settings.");
-        }
+        throw err;
     }
 }
 
-connectDB();
-
 // Middleware to ensure DB is connected
-const checkDB = (req, res, next) => {
-    if (!db) {
-        return res.status(503).json({ message: "Database not connected yet. Please try again in a few seconds." });
+const checkDB = async (req, res, next) => {
+    try {
+        if (!cachedDb) {
+            await connectDB();
+        }
+        db = cachedDb; // Support existing code references to 'db'
+        next();
+    } catch (error) {
+        return res.status(503).json({
+            message: "Database connection failed",
+            error: error.message,
+            hint: "Check MONGODB_URI and IP whitelist in Atlas.",
+        });
     }
-    next();
 };
 
 // GET all items

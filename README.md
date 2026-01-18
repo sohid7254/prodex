@@ -55,6 +55,24 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+## 🚀 Deployment (Vercel)
+
+For a successful deployment on Vercel, follows these steps:
+
+### 1. Backend Deployment
+
+- Create a new project on Vercel and point it to the `backend` directory.
+- Add the following **Environment Variables** in Vercel settings:
+    - `MONGODB_URI`: Your MongoDB Atlas connection string.
+- Vercel will automatically use the `vercel.json` and deploy it as a serverless function.
+
+### 2. Frontend Deployment
+
+- Create another project on Vercel and point it to the `frontend` directory.
+- Add the following **Environment Variable**:
+    - `NEXT_PUBLIC_API_URL`: The URL of your deployed backend (e.g., `https://prodex-api.vercel.app`).
+- Next.js will use this URL for all API calls.
+
 ## 🔗 Route Summary
 
 ### Frontend Routes

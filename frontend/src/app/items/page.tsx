@@ -24,7 +24,8 @@ export default function ItemsPage() {
     useEffect(() => {
         const fetchItems = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/api/items");
+                const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+                const res = await axios.get(`${apiUrl}/api/items`);
                 setItems(res.data);
             } catch (err) {
                 console.error("Error fetching items:", err);

@@ -22,7 +22,8 @@ export default function FeaturedPage() {
     useEffect(() => {
         const fetchItems = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/api/items");
+                const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+                const res = await axios.get(`${apiUrl}/api/items`);
                 // For featured, just take the top 4 for now
                 setItems(res.data.slice(0, 4));
             } catch (err) {
