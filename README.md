@@ -1,45 +1,86 @@
-# Prodex - Premium E-commerce Application
+# Prodex - Premium E-commerce Catalogous
 
-## Project Overview
+Prodex is a modern, high-performance full-stack e-commerce application designed for showcasing premium products with a sleek, minimalist aesthetic. It features a robust Next.js frontend and a lightweight Express.js backend integrated with MongoDB.
 
-A full-stack e-commerce application built with Next.js (frontend) and Express.js (backend).
+## 🚀 Features
 
-## Tech Stack
+- **Premium UI/UX**: Built with Framer Motion and Tailwind CSS for a fluid, high-end feel.
+- **Dynamic Product Catalog**: Browse through categories like Electronics, Lifestyle, and Accessories with real-time filtering.
+- **Detailed Item View**: Rich product pages with quantity selection, image galleries, and favoriting.
+- **Admin Dashboard**: Secure form to add new premium items directly to the database.
+- **MongoDB Integration**: Native MongoDB driver implementation for fast and reliable data storage.
+- **Mock Authentication**: Simple cookie-based authentication for restricted routes.
+- **Responsive Design**: Fully optimized for mobile, tablet, and desktop experiences.
 
-- **Frontend**: Next.js 16, Tailwind CSS 4, Framer Motion, Lucide React, Axios.
-- **Backend**: Express.js, CORS, Body-parser.
+## 🛠️ Tech Stack
 
-## Getting Started
+- **Frontend**: Next.js 15+ (App Router), React, Tailwind CSS, Lucide React, Framer Motion, Axios.
+- **Backend**: Node.js, Express.js, Native MongoDB Driver, Dotenv, CORS.
+- **Database**: MongoDB (Atlas/Local).
+
+## 📥 Setup & Installation
 
 ### Prerequisites
 
-- Node.js installed on your machine.
+- Node.js (v18+)
+- MongoDB (Local instance or Atlas Cluster)
 
-### Installation
+### 1. Clone the repository
 
-1. **Clone the repository**:
+```bash
+git clone https://github.com/sohid7254/prodex.git
+cd prodex
+```
 
-    ```bash
-    git clone <your-repo-url>
-    cd Prodex
-    ```
+### 2. Backend Setup
 
-2. **Setup Backend**:
+```bash
+cd backend
+npm install
+```
 
-    ```bash
-    cd backend
-    npm install
-    node index.js
-    ```
+Start the backend:
 
-3. **Setup Frontend**:
-    ```bash
-    cd ../frontend
-    npm install
-    npm run dev
-    ```
+```bash
+nodemon index.js
+```
 
-## Development
+### 3. Frontend Setup
 
-- Backend runs on `http://localhost:5000`
-- Frontend runs on `http://localhost:3000` (or `3001` if 3000 is busy)
+```bash
+cd ../frontend
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 🔗 Route Summary
+
+### Frontend Routes
+
+- `/` - Landing Page (Hero, Features, Testimonials)
+- `/items` - Product Listing & Search
+- `/items/[id]` - Detailed Product View
+- `/add-item` - Form to list new items (Protected)
+- `/login` - Simple Login Page
+
+### Backend API (`http://localhost:5000/api`)
+
+- `GET /items` - Retrieve all items from the database.
+- `GET /items/:id` - Retrieve a specific item by its MongoDB ObjectID.
+- `POST /items` - Create a new item (Requires JSON body with name, price, description, image).
+
+## 📐 Feature Breakdown
+
+### Native MongoDB Integration
+
+Unlike standard implementations using Mongoose, this project utilizes the **native MongoDB driver** for direct, low-overhead database operations. This ensures maximum performance and more granular control over database queries.
+
+### Robust Route Registration
+
+The backend is architected to register its API routes independently of the database connection status. A specialized `checkDB` middleware handles requests gracefully, returning a 503 status if the database is still initializing, ensuring zero downtime for the server itself.
+
+### Framer Motion Animations
+
+The UI utilizes `AnimatePresence` and `motion` components to provide smooth transitions between filter states and lazy loading of product cards.
